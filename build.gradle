@@ -1,7 +1,7 @@
 plugins {
     id "java"
     id 'jacoco'
-    id 'info.solidsoft.pitest' version '1.9.0'
+    id 'info.solidsoft.pitest' version '1.15.0'
 }
 
 repositories {
@@ -24,13 +24,13 @@ test {
     }
 }
 
-jacocoTestReport {
-    reports {
-        xml.required = false
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
-    }
-}
+// jacocoTestReport {
+//     reports {
+//         xml.required = false
+//         csv.required = false
+//         html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+//     }
+// }
 
 pitest {
     targetClasses = ['LP*']  // by default "${project.group}.*"
@@ -38,4 +38,5 @@ pitest {
     outputFormats = ['XML', 'HTML']
     timestampedReports = false
     junit5PluginVersion = '1.2.0'
+    pitestVersion = '1.15.0'
 }
